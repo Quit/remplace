@@ -1,0 +1,14 @@
+<script type="text/x-handlebars" data-template-name="replaceItemsDialog">
+<div id="replaceItemsDialog" class="gui bulletinDialog">
+   <div class="window">
+      <div class="title">Replace Items <div class="closeButton"></div></div>
+      <div id="content">
+            <div id="selectedList" class="inventoryList"></div>
+            <div id="availableList" class="inventoryList"></div>
+            
+            <button {{bind-attr class=":green view.readyToReplace:blorp:disabled"}} id="replaceButton">Replace {{#if view.readyToReplace}}{{view.replaceeName}} with {{view.replacerName}}{{/if}}</button>
+            
+      </div>
+   </div>
+</div>
+</script>

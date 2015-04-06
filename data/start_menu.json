@@ -1,0 +1,14 @@
+{
+   "build_menu" : {
+      "items" : {
+         "replace_items" : {
+            "name" : "Replaces Items",
+            "description" : "Replaces one item with another",
+            "class" : "button",
+            "icon" : "/remplace/ui/start_menu_icon.png",
+            "sticky" : true,
+            "hotkey" : "u"
+         }
+      }
+   }
+}

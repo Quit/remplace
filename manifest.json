@@ -1,0 +1,55 @@
+{
+   "info" : {
+      "name" : "Remplace /all/ the things",
+      "version" : 1
+   },
+   
+   "server_init_script" : "file(remplace_server)",
+   
+   "mixintos" : {
+      "/stonehearth/data/ui/start_menu.json" : "file(data/start_menu.json)"
+   },
+   
+   "aliases" : {
+      "cursors:select_area" : "file(data/upgrade.cur)"
+   },
+   
+   "controllers" : {
+      "controllers:replacer" : "file(controller.lua)"
+   },
+   
+   "functions" : {
+      "select_area" : {
+         "controller" : "file(call_handler.lua)",
+         "endpoint" : "client"
+      },
+      
+      "get_items_within_area" : {
+         "controller" : "file(call_handler.lua)",
+         "endpoint" : "server"
+      },
+      
+      "get_available_items" : {
+         "controller" : "file(call_handler.lua)",
+         "endpoint" : "server"
+      },
+      
+      "replace_items" : {
+         "controller" : "file(call_handler.lua)",
+         "endpoint" : "server"
+      }
+   },
+   
+   "ui" : {
+      "js" : [
+         "file(ui/start_menu.js)",
+         "file(ui/replace_dialog/replace_dialog.js)"
+      ],
+      "html" : [
+         "file(ui/replace_dialog/replace_dialog.html)"
+      ],
+      "less" : [
+         "file(ui/replace_dialog/replace_dialog.less)"
+      ]
+   }
+}

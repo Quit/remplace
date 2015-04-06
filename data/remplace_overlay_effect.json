@@ -1,0 +1,18 @@
+{
+   "type" : "effect",
+   "tracks": {
+      "activity_overlay_effect": {
+         "type" : "activity_overlay_effect",
+         "material" : {
+            "name": "/stonehearth/data/horde/materials/overlay.material.json",
+            "samplers" : [
+               {
+                  "name" : "albedoMap",
+                  "map": "/remplace/data/horde/materials/remplace_overlay/remplace.png"
+               }
+            ]
+         },
+         "y_offset" : -20
+     }
+   }
+}
