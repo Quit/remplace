@@ -42,7 +42,6 @@
    
    "ui" : {
       "js" : [
-         "file(ui/start_menu.js)",
          "file(ui/replace_dialog/replace_dialog.js)"
       ],
       "html" : [
