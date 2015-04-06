@@ -1,15 +1,6 @@
 -- ASKDLSAFLHSALFHSLFJHLAJHSGKLJHGLASFD!!!!!!! 
 local Replacer = class()
 
-local function count(t)
-  local n = 0
-  for _, _ in pairs(t) do
-    n = n + 1
-  end
-  
-  return n
-end
-
 function Replacer:initialize(player_id)
   if not self._sv.initialized then
     self._sv.initialized = true
@@ -86,7 +77,6 @@ end
 
 function Replacer:_on_position_changed(data)
   if not radiant.entities.exists_in_world(data.replacee) then
-    print('start replacing', data.replacee, 'with', data.replacer)
     self:_release_replacement(data.replacer)
     local ic = data.replacer:get_component 'stonehearth:iconic_form'
     --       what u did there
@@ -101,17 +91,14 @@ function Replacer:_on_position_changed(data)
 end
 
 function Replacer:_is_valid_replacer(entity)
-  print('can_acquire_lease', entity)
   return stonehearth.ai:can_acquire_ai_lease(entity, self._sv.keeper)
 end
 
 function Replacer:_acquire_replacement(entity)
-  print('acquire_lease', entity)
   return stonehearth.ai:acquire_ai_lease(entity, self._sv.keeper)
 end
 
 function Replacer:_release_replacement(entity)
-  print('release_lease', entity)
   stonehearth.ai:release_ai_lease(entity, self._sv.keeper)
   entity:get_component 'stonehearth:iconic_form':get_root_entity():get_component 'stonehearth:entity_forms':cancel_placement_tasks()
   
@@ -167,7 +154,6 @@ function Replacer:replace_entity(entity, replacerUri)
       facing = rot
     }
 
-    print('schedule replacing of', entity, 'with', replacer)
     self._sv.replacements[entity:get_id()] = data
     self:_install_tracers(data)
     self.__saved_variables:mark_changed()
